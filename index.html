@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ceejay — Web Developer (Landing Pages, Dashboards & Fixes)</title>
+  <meta name="description" content="Ceejay — Fast landing pages, dashboards, website fixes and SQL setups. 48-hour delivery option. International clients welcome." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent: #0d6efd;
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --muted: #6c757d;
+      --text: #051029;
+      --glass-bg: rgba(255,255,255,0.6);
+    }
+    [data-theme="dark"]{
+      --bg: #07101a;
+      --card: #071822;
+      --muted: #97a6b5;
+      --accent: #4ea8ff;
+      --text: #e6eef9;
+      --glass-bg: rgba(255,255,255,0.02);
+      color-scheme: dark;
+    }
+
+    html,body{height:100%}
+    body{
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      transition: background .25s, color .25s;
+    }
+
+    .nav-brand{font-weight:700; letter-spacing:0.2px}
+    .hero{
+      padding:56px 0;
+      background: linear-gradient(180deg, rgba(13,110,253,0.06), transparent);
+    }
+    .btn-accent{background:var(--accent); color:#fff; border:none;}
+    .kpi{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 8px 24px rgba(9,30,66,0.06);}
+    .project-card{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 8px 20px rgba(9,30,66,0.04);}
+    /* Ensure placeholder-snap keeps layout and doesn't collapse */
+    .placeholder-snap{
+      width:100%;
+      height:160px;
+      min-height:160px;
+      border-radius:8px;
+      background:linear-gradient(90deg,#eef,#fff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#5b616a;
+      font-weight:600;
+      overflow:hidden;
+      position:relative;
+    }
+    .placeholder-snap img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:8px;
+      display:block;
+    }
+    .small-muted{color:var(--muted)}
+    .pricing .card{border-radius:12px;}
+    footer{padding:28px 0;background:transparent;color:var(--muted)}
+    .badge-soft{background:rgba(13,110,253,0.08); color:var(--accent); border-radius:8px; padding:6px 10px; font-weight:600}
+    .section-title{font-weight:700; margin-bottom:18px}
+    .glass{
+      background: var(--glass-bg);
+      backdrop-filter: blur(6px);
+    }
+    .fade-up{opacity:0; transform:translateY(12px); transition:all .45s ease;}
+    .fade-up.in{opacity:1; transform:none;}
+    .toggle-switch{cursor:pointer}
+    .file-input{display:none}
+
+    /* small helper for the remove button */
+    .remove-btn { display:none; }
+
+    @media(min-width:992px){
+      .placeholder-snap{height:220px}
+      .hero{padding:80px 0}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 sticky-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand nav-brand" href="#">Ceejay — Web Dev</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navCollapse">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#portfolio">Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ps-3">
+          <div class="form-check form-switch toggle-switch" id="themeToggle" title="Toggle dark mode">
+            <input class="form-check-input" type="checkbox" role="switch" id="darkSwitch">
+            <label class="form-check-label small" for="darkSwitch" id="darkLabel">Dark</label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-6 mb-3">I build clean landing pages, dashboards & SQL systems — fast.</h1>
+        <p class="small-muted lead">48-hour delivery for landing pages. Rapid fixes, responsive dashboards, and database setups. Built with HTML, Bootstrap, JS and SQL. International clients welcome.</p>
+
+        <div class="d-flex gap-2 mt-4">
+          <a class="btn btn-accent btn-lg" href="#contact">Get a quick quote</a>
+          <a class="btn btn-outline-secondary btn-lg" href="#portfolio">See samples</a>
+        </div>
+
+        <ul class="mt-4 small-muted">
+          <li>✅ 48-hour delivery option</li>
+          <li>✅ Clean Bootstrap 5 code, responsive by default</li>
+          <li>✅ Fast fixes & small dashboard builds</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6 text-center">
+        <div class="kpi mb-3">
+          <div class="row text-center">
+            <div class="col-4">
+              <h3 class="mb-0">48h</h3>
+              <small class="small-muted">Turnaround</small>
+            </div>
+            <div class="col-4">
+              <h3 class="mb-0">3+</h3>
+              <small class="small-muted">Samples ready</small>
+            </div>
+            <div class="col-4">
+              <h3 class="mb-0">100%</h3>
+              <small class="small-muted">Responsive</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO SAMPLE: uses images/saaspage.png -->
+        <div id="heroSample" class="placeholder-snap" data-default-text="SaaS Landing Page — Screenshot">
+          <img id="heroImg" src="images/saaspage.png" alt="SaaS Landing Page Screenshot" onerror="this.style.display='none'">
+          <div id="heroFallback" style="position:absolute; inset:0; display:flex;align-items:center;justify-content:center;color:#5b616a;font-weight:600">SaaS Landing Page — Screenshot</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="h4 mb-0 section-title">Work Samples</h2>
+      <a href="#contact" class="text-decoration-none small-muted">Need this exact look? →</a>
+    </div>
+
+    <div class="row g-4">
+      <!-- Sample 1 -->
+      <div class="col-md-4">
+        <div class="project-card fade-up" data-animate>
+          <div id="sampleWrap1" class="placeholder-snap" data-default-text="Landing Page (HTML/CSS/Bootstrap)">
+            <img id="sampleImg1" src="images/saaspage.png" alt="SaaS Landing Page Screenshot" onerror="this.style.display='none'">
+            <div id="sampleFallback1" style="position:absolute; inset:0; display:flex;align-items:center;justify-content:center;color:#5b616a;font-weight:600">Landing Page (HTML/CSS/Bootstrap)</div>
+          </div>
+
+          <h5 class="mt-3">Modern SaaS Landing</h5>
+          <p class="small-muted small mb-1">Hero, features, pricing, testimonials.</p>
+          <div class="mt-2 d-flex gap-2 align-items-center">
+            <span class="badge-soft">48h</span>
+            <span class="badge bg-light text-dark ms-2">Bootstrap</span>
+            <div class="ms-auto">
+              <label class="btn btn-sm btn-outline-secondary mb-0">
+                Upload sample <input id="fileSample1" class="file-input" type="file" accept="image/*">
+              </label>
+              <button class="btn btn-sm btn-link text-danger remove-btn" id="removeSample1" type="button">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample 2 -->
+      <div class="col-md-4">
+        <div class="project-card fade-up" data-animate>
+          <div id="sampleWrap2" class="placeholder-snap" data-default-text="Dashboard (HTML/CSS/JS)">
+            <img id="sampleImg2" src="images/dasboarddemo.png" alt="Dashboard Screenshot" onerror="this.style.display='none'">
+            <div id="sampleFallback2" style="position:absolute; inset:0; display:flex;align-items:center;justify-content:center;color:#5b616a;font-weight:600">Dashboard (HTML/CSS/JS)</div>
+          </div>
+
+          <h5 class="mt-3">Real Estate Analytics Dashboard</h5>
+          <p class="small-muted small mb-1">Sidebar, KPIs, charts, recent activity.</p>
+          <div class="mt-2 d-flex gap-2 align-items-center">
+            <span class="badge-soft">Custom</span>
+            <span class="badge bg-light text-dark ms-2">SQL-ready</span>
+            <div class="ms-auto">
+              <label class="btn btn-sm btn-outline-secondary mb-0">
+                Upload sample <input id="fileSample2" class="file-input" type="file" accept="image/*">
+              </label>
+              <button class="btn btn-sm btn-link text-danger remove-btn" id="removeSample2" type="button">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample 3 -->
+      <div class="col-md-4">
+        <div class="project-card fade-up" data-animate>
+          <div id="sampleWrap3" class="placeholder-snap" data-default-text="Portfolio Site">
+            <img id="sampleImg3" src="images/portfoliodemo.png" alt="Portfolio Website Screenshot" onerror="this.style.display='none'">
+            <div id="sampleFallback3" style="position:absolute; inset:0; display:flex;align-items:center;justify-content:center;color:#5b616a;font-weight:600">Portfolio Site</div>
+          </div>
+
+          <h5 class="mt-3">Personal Portfolio Website</h5>
+          <p class="small-muted small mb-1">Projects grid + contact form.</p>
+          <div class="mt-2 d-flex gap-2 align-items-center">
+            <span class="badge-soft">Fast</span>
+            <span class="badge bg-light text-dark ms-2">Responsive</span>
+            <div class="ms-auto">
+              <label class="btn btn-sm btn-outline-secondary mb-0">
+                Upload sample <input id="fileSample3" class="file-input" type="file" accept="image/*">
+              </label>
+              <button class="btn btn-sm btn-link text-danger remove-btn" id="removeSample3" type="button">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES & PRICING -->
+<section id="services" class="py-5 bg-light">
+  <div class="container">
+    <div class="row gy-4 align-items-start">
+      <div class="col-lg-6">
+        <h3 class="section-title">Services I offer</h3>
+        <ul class="mt-3 small-muted">
+          <li>Landing pages (48-hour delivery)</li>
+          <li>Dashboard UIs (analytics, CRM, real estate)</li>
+          <li>Website fixes & responsiveness</li>
+          <li>SQL database design & setup</li>
+          <li>Portfolio websites for influencers/coaches</li>
+        </ul>
+        <div class="mt-4">
+          <h6 class="mb-2">Typical workflow</h6>
+          <ol class="small-muted small">
+            <li>Discuss brief → 40% upfront</li>
+            <li>Delivery in agreed time → 60% after delivery</li>
+            <li>Two revisions included</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-lg-6" id="pricing">
+        <h3 class="section-title">Pricing (USD)</h3>
+        <div class="pricing mt-3">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="card p-3 project-card">
+                <h5 class="mb-1">Landing Page</h5>
+                <p class="small-muted mb-2">Clean Bootstrap landing — <strong>$60–$85</strong></p>
+                <p class="small mb-0">48h option available. Includes 2 revisions.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="card p-3 project-card">
+                <h5 class="mb-1">Dashboard</h5>
+                <p class="small-muted mb-2">Custom dashboard — <strong>$88–$130</strong></p>
+                <p class="small mb-0">Includes basic charts & mobile responsiveness.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="card p-3 project-card">
+                <h5 class="mb-1">Quick Fix</h5>
+                <p class="small-muted mb-2">Small fixes — <strong>$25–$46</strong></p>
+                <p class="small mb-0">Navbar, responsiveness, JS bug fixes.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="card p-3 project-card">
+                <h5 class="mb-1">SQL Setup</h5>
+                <p class="small-muted mb-2">Schema + setup — <strong>$65–$111</strong></p>
+                <p class="small mb-0">Includes ERD & sample data.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-5">
+  <div class="container">
+    <h3 class="section-title">Testimonials</h3>
+    <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="project-card p-4">
+            <p class="mb-1">“Ceejay delivered our landing page in 48 hours. Clean code and quick fixes.”</p>
+            <small class="small-muted">— A. Johnson, SaaS Founder</small>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="project-card p-4">
+            <p class="mb-1">“Pixel-perfect dashboard replication. Fast and communicative.”</p>
+            <small class="small-muted">— R. Smith, Real Estate Broker</small>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="project-card p-4">
+            <p class="mb-1">“Saved our site with a quick fix — responsive and affordable.”</p>
+            <small class="small-muted">— C. Morales, Photographer</small>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h3 class="section-title">FAQ</h3>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">How fast can you deliver a landing page?</button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body small-muted">Standard landing pages can be delivered in 48 hours if brief and assets are provided. Complex sites need more time.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+  <h2 class="accordion-header" id="faqSeven">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven">
+      How long does a full website project take from start to finish?
+    </button>
+  </h2>
+  <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+    <div class="accordion-body small-muted">
+      A standard business website takes 5–10 days depending on pages and complexity. More advanced systems like dashboards or e-commerce take 2–4 weeks to complete properly.
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h2 class="accordion-header" id="faqEight">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight">
+      What do you need from me before you start a project?
+    </button>
+  </h2>
+  <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+    <div class="accordion-body small-muted">
+      I only need your brand name, colours, logo (optional), and a short description of the site’s purpose. If you don’t have branding yet, I can create a clean temporary version to speed up development.
+    </div>
+  </div>
+</div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">Do you work with international clients?</button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body small-muted">Yes. I accept international clients via Stripe/PayPal/Bank transfer and use Whatsapp/Email for communication.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-6">
+        <h3 class="section-title">Ready to start?</h3>
+        <p class="small-muted">Send a brief or request a mockup. I usually reply within hours.</p>
+
+        <div class="contact-box">
+          <form id="contactForm" novalidate>
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" id="inputName" placeholder="Your name" required>
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Phone</label>
+              <div class="input-group">
+                <select id="countryCode" class="form-select" style="max-width: 140px;">
+                  <option value="+1">+1 US</option>
+                  <option value="+44">+44 UK</option>
+                  <option value="+234">+234 NG</option>
+                  <option value="+233">+233 GH</option>
+                  <option value="+91">+91 IN</option>
+                  <option value="+61">+61 AU</option>
+                  <option value="+49">+49 DE</option>
+                  <option value="+7">+7 RU</option>
+                  <option value="+27">+27 ZA</option>
+                </select>
+                <input type="tel" id="inputPhone" class="form-control" placeholder="8060000000 or full international" required>
+                <div class="invalid-feedback">Enter a phone number.</div>
+              </div>
+              <div class="form-text small-muted">Select country code.</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" id="inputEmail" class="form-control" placeholder="you@example.com" required>
+              <div class="invalid-feedback">Enter a valid email.</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Project brief</label>
+              <textarea id="inputMessage" class="form-control" rows="4" placeholder="Describe what you need" required></textarea>
+              <div class="invalid-feedback">Please describe the project briefly.</div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-accent">Send quick brief</button>
+              <button type="button" class="btn btn-outline-secondary" id="startWhatsApp">Start WhatsApp</button>
+              <button type="button" class="btn btn-outline-secondary" id="copyContact">Copy contact</button>
+            </div>
+            <div id="formMsg" class="mt-3 small text-success" style="display:none">Message prepared — your email client will open now.</div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <h5>Contact links</h5>
+        <p class="small-muted mb-1">WhatsApp: <span id="displayPhone">+2349041657689</span></p>
+        <p class="small-muted mb-1">Email: <a id="mailLink" href="mailto:ceejayairdrop@gmail.com">ceejayairdrop@gmail.com</a></p>
+        <p class="small-muted">GitHub: <a href="https://github.com/Ceejaybill" target="_blank">github.com/Ceejaybill</a></p>
+        <div class="mt-4">
+          <h6>Payment methods</h6>
+          <p class="small-muted mb-1">Stripe / PayPal / Bank transfer — invoice provided on request.</p>
+          <h6 class="mt-3">Locations</h6>
+          <p class="small-muted">I work remotely with clients worldwide (US, UK, EU, Africa, AU, Asia).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAR -->
+<section class="py-3 bg-white border-top">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div><strong>Need a 48-hour landing page?</strong> — I can start today.</div>
+    <div><a class="btn btn-accent" href="#contact">Get started</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center mt-4">
+  <div class="container">
+    <p class="mb-1">© Ceejay — Web Developer</p>
+    <p class="small-muted small mb-0">Built with HTML, Bootstrap, JS. International clients welcome.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/*
+  Image handling:
+  - Loads images from relative path images/*. If the file is missing or 404s, the fallback text remains visible.
+  - Upload inputs preview selected image (replaces current preview).
+  - Remove button clears preview and shows fallback text.
+*/
+
+// Helper: hook up preview for a given file input and target img/fallback/removeBtn
+function setupImagePreview(fileInputId, imgId, fallbackId, removeBtnId) {
+  const fileInput = document.getElementById(fileInputId);
+  const img = document.getElementById(imgId);
+  const fallback = document.getElementById(fallbackId);
+  const removeBtn = document.getElementById(removeBtnId);
+
+  // show/hide fallback based on whether image loaded or displayed
+  function updateFallbackVisibility() {
+    if (img && img.complete && img.naturalWidth !== 0 && img.style.display !== 'none') {
+      fallback.style.display = 'none';
+      if (removeBtn) removeBtn.style.display = 'inline-block';
+    } else {
+      fallback.style.display = 'flex';
+      if (removeBtn) removeBtn.style.display = 'none';
+    }
+  }
+
+  // when page loads try to detect if the image resolved
+  if (img) {
+    img.addEventListener('load', () => { img.style.display='block'; updateFallbackVisibility(); });
+    img.addEventListener('error', () => { img.style.display='none'; updateFallbackVisibility(); });
+    // initial check (in case browser cached)
+    setTimeout(updateFallbackVisibility, 60);
+  }
+
+  // file input change -> preview
+  if (fileInput) {
+    fileInput.addEventListener('change', (e) => {
+      const f = e.target.files && e.target.files[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = function(ev) {
+        if (img) {
+          img.src = ev.target.result;
+          img.style.display = 'block';
+        }
+        updateFallbackVisibility();
+      };
+      reader.readAsDataURL(f);
+    });
+  }
+
+  // remove button clears preview (reverts to original src if desired)
+  if (removeBtn) {
+    removeBtn.addEventListener('click', () => {
+      // hide img and show fallback
+      if (img) {
+        img.style.display = 'none';
+        // if you want to revert to original file path, uncomment next line and set original path
+        // img.src = 'images/saaspage.png';
+      }
+      updateFallbackVisibility();
+      if (fileInput) fileInput.value = '';
+    });
+  }
+}
+
+// set up three previews
+setupImagePreview('fileSample1', 'sampleImg1', 'sampleFallback1', 'removeSample1');
+setupImagePreview('fileSample2', 'sampleImg2', 'sampleFallback2', 'removeSample2');
+setupImagePreview('fileSample3', 'sampleImg3', 'sampleFallback3', 'removeSample3');
+// hero image doesn't have upload; just show/hide fallback if 404
+(function(){ const hImg=document.getElementById('heroImg'), hFallback=document.getElementById('heroFallback'); 
+  if(hImg){ hImg.addEventListener('load', ()=> hFallback.style.display='none'); hImg.addEventListener('error', ()=> hImg.style.display='none'); setTimeout(()=>{ if(!hImg.complete || hImg.naturalWidth===0) hImg.style.display='none'; if(hImg.style.display==='none') hFallback.style.display='flex'; else hFallback.style.display='none'; },50);} })();
+
+// Small utility: reveal fade-up elements on scroll
+function revealOnScroll() {
+  const nodes = document.querySelectorAll('.fade-up');
+  const windowHeight = window.innerHeight;
+  nodes.forEach(n => {
+    const rect = n.getBoundingClientRect();
+    if (rect.top <= windowHeight - 80) n.classList.add('in');
+  });
+}
+document.addEventListener('scroll', revealOnScroll, { passive: true });
+window.addEventListener('load', revealOnScroll);
+
+// Optional: dark theme toggle (if you use)
+const darkSwitch = document.getElementById('darkSwitch');
+if (darkSwitch) {
+  darkSwitch.addEventListener('change', (e) => {
+    if (e.target.checked) document.documentElement.setAttribute('data-theme', 'dark');
+    else document.documentElement.removeAttribute('data-theme');
+  });
+}
+</script>
+</body>
+</html>
